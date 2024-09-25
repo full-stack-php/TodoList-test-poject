@@ -1,0 +1,79 @@
+// width height
+@each $property, $value in $spaces {
+  .w-#{$property} {
+    width: $value !important;
+  }
+}
+
+@each $property, $value in $spaces {
+  .h-#{$property} {
+    height: $value !important;
+  }
+}
+
+.w-100px {
+  width: 100px;
+}
+.w-half {
+  width: 50%;
+}
+.w-full {
+  width: 100%;
+}
+
+.w-350 {
+  width: 350px;
+  @include md-screen {
+    width: 300px;
+  }
+  @include sm-screen {
+    width: 250px;
+  }
+}
+.w-750 {
+  width: 750px;
+  @include md-screen {
+    width: 500px;
+  }
+  @include sm-screen {
+    width: 350px;
+  }
+}
+
+.max-h {
+  &-unset {
+    max-height: unset !important;
+  }
+  &-200 {
+    max-height: 200px;
+  }
+  &-250 {
+    max-height: 250px;
+  }
+  &-270 {
+    max-height: 270px;
+  }
+  &-400 {
+    max-height: 400px;
+  }
+}
+
+.max-w {
+  &-unset {
+    max-width: unset !important;
+  }
+  &-130 {
+    max-width: 130px;
+  }
+  &-280 {
+    max-width: 280px;
+  }
+  &-845 {
+    max-width: 845px;
+  }
+  &-740 {
+    max-width: 740px;
+  }
+}
+
+

@@ -1,0 +1,113 @@
+/* input Start */
+.form-control {
+  border-radius: 8px;
+  font-weight: 400;
+  outline: none;
+  width: 100%;
+  padding: 13px 16px;
+  background-color: transparent !important;
+  border: 1px solid $gray;
+  color: $dark;
+  line-height: 1;
+  &::placeholder {
+    color: $gray;
+    transition: .2s linear;
+    font-weight: 400;
+    font-size: $font-size-base;
+  }
+  &:focus {
+    border-color: hsl(var(--main));
+    box-shadow: none !important;
+    &::placeholder {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}
+/* input End */
+/* Custom Checkbox & Radio Css Start */
+.form-check {
+  @extend .flex-align;
+  .form-check-input {
+    transition: .2s linear;
+    box-shadow: none;
+    background-color: transparent;
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border: 1px solid $dark;
+    cursor: pointer;
+    margin-block-start: 0;
+    &::before {
+      position: absolute;
+      font-family: "Font Awesome 6 Free";
+      content: fa-content($fa-var-check);
+      font-weight: 900;
+      color: $white;
+      font-size: 12px;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      transform: translate(-50%, -50%);
+      transition: .2s linear;
+      visibility: hidden;
+      opacity: 0;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      -webkit-transform: translate(-50%, -50%) scale(.2);
+      transform: translate(-50%, -50%) scale(.2);
+      width: 10px;
+      height: 10px;
+      background-color: hsl(var(--main));
+      border-radius: 50%;
+      transition: .2s linear;
+      z-index: 1;
+      visibility: hidden;
+      opacity: 0;
+    }
+    &:checked {
+      background-color: $teal !important;
+      border-color: $teal !important;
+      box-shadow: none;
+      &[type=checkbox] {
+        background-image:none;
+      }
+      &::before {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+  .form-check-label {
+    font-weight: 500;
+    width: calc(100% - 18px);
+    padding-inline-start: 12px;
+    cursor: pointer;
+    color: $dark;
+  }
+}
+/* input with icon */
+.input-icon {
+  position: absolute;
+  inset-inline-start: 16px;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  color: $gray;
+  &--right {
+    inset-inline-end: 16px;
+    inset-inline-start: auto;
+  }
+}
+/* Custom Checkbox & Radio Css End */
+
+.task_form .btn_wrap {
+  margin-top: auto;
+}
+.has-error{
+  .help-block{
+    color: $red;
+  }
+}
