@@ -1,0 +1,123 @@
+/* Sidebar Css Start */
+.sidebar {
+  width: 352px;
+  position: fixed;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  background-color: $white;
+  height: 100%;
+  z-index: 99;
+  @include lg-screen {
+    transform: translateX(-100%);
+    z-index: 99;
+    transition: .2s linear;
+  }
+  &.active {
+    transform: translateX(0);
+  }
+
+  &-close-btn {
+    inset-inline-end: 8px;
+    inset-block-start: 8px;
+  }
+  .sidebar_logo{
+    img{
+      max-width: 150px;
+    }
+  }
+}
+
+.sidebar-menu-wrapper {
+  max-height: calc(100vh - 62px) !important;
+}
+
+.sidebar-menu {
+  &__item {
+    &:not(:last-child) {
+      margin-block-end: 12px;
+    }
+    &.activePage {
+      .sidebar-menu {
+        &__link {
+          background-color: $teal;
+          color: $white;
+          &::before {
+            color: $white !important;
+            transform: translateY(-50%) rotate(90deg) !important;
+          }
+          .link-badge {
+            background-color: $tealdark;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+  &__link {
+    padding: 15px 16px;
+    border-radius: 8px;
+    color: $gray;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: capitalize;
+    &:hover {
+      color: $teal;
+      background-color: $cyan;
+    }
+    .icon {
+      font-size: 16px;
+      line-height: 1;
+      display: flex;
+    }
+    .link-badge {
+      width: 22px;
+      height: 22px;
+      background-color: $teal;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-size: 13px;
+      margin-inline-start: auto;
+      margin-inline-end: 18px;
+      color: $white;
+    }
+  }
+}
+
+#mainContent {
+  &.full-width{
+    width: 100%;
+    transition: width 0.3s ease;
+  }
+  &.reduced-width {
+    width: calc(100% - 350px);
+    transition: width 0.3s ease;
+    @include sm-screen {
+      width: 100%;
+    }
+    @include md-screen {
+      width: 100%;
+    }
+  }
+}
+
+
+.right-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 350px;
+  background-color: #f8f9fa;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  &--hidden{
+    transform: translateX(100%);
+  }
+  &--shown{
+    transform: translateX(0);
+  }
+}

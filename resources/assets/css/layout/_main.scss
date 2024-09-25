@@ -1,0 +1,39 @@
+.main_wrap {
+  position: relative;
+  margin-inline-start: 352px;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  transition: .2s linear;
+  background-color: $white-gray;
+  z-index: 9;
+  @include lg-screen {
+    margin-inline-start: 0px;
+  }
+  &.active {
+    margin-inline-start: rem(78px);
+  }
+}
+
+.main_wrapper {
+  padding-block-start: 24px;
+  padding-block-end: 24px;
+}
+
+.top-navbar, .main_wrapper {
+  padding-inline-start: 24px;
+  padding-inline-end: 24px;
+  @include xxl-screen {
+    padding-inline-start: 16px;
+    padding-inline-end: 16px;
+  }
+}
+.footer {
+  margin-inline-start: 24px;
+  margin-inline-end: 24px;
+  @include lg-screen {
+    margin-inline-start: 16px;
+    margin-inline-end: 16px;
+  }
+}

@@ -1,0 +1,49 @@
+/* Mixins Css Start */
+/* Media Breakpoint for Each Device Start */
+@mixin xxsm-screen {
+  @media screen and (max-width: 374px) {
+    @content;
+  }
+}
+@mixin xsm-screen {
+  @media screen and (max-width: 424px) {
+    @content;
+  }
+}
+@mixin msm-screen {
+  @media screen and (max-width: 575px) {
+    @content;
+  }
+}
+@mixin sm-screen {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin md-screen {
+  @media screen and (max-width: 991px) {
+    @content;
+  }
+}
+@mixin lg-screen {
+  @media screen and (max-width: 1199px) {
+    @content;
+  }
+}
+@mixin xl-screen {
+  @media screen and (max-width: 1399px) {
+    @content;
+  }
+}
+@mixin xxl-screen {
+  @media screen and (max-width: 1499px) {
+    @content;
+  }
+}
+@mixin xxxl-screen {
+  @media screen and (max-width: 1599px) {
+    @content;
+  }
+}
+
+/* Mixins Css End */

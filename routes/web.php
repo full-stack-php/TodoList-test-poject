@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+use Illuminate\Support\Facades\Auth;
+
+Auth::routes();
+
+Route::group([ 'middleware' => 'auth'], function ($router) {
+    Route::get('/', 'IndexController@index')->name('home');
 });

@@ -1,0 +1,62 @@
+.btn {
+  position: relative;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  color: $white !important;
+  z-index: 1;
+  line-height: 1;
+  padding: 14px 20px;
+  font-size: 16px;
+  text-transform: capitalize;
+  &:hover, &:focus, &:focus-visible {
+    box-shadow: none !important;
+  }
+  &:active {
+    transform: scale(1.01);
+  }
+  /* Different Color Button Start */
+  &-main {
+    background-color: $teal !important;
+    border-color: $teal !important;
+    &:hover {
+      background-color: $tealharddark !important;
+      border-color: $tealharddark !important;
+    }
+  }
+  &-outline-main {
+    background-color: transparent !important;
+    border-color: $teal !important;
+    color: $teal !important;
+    &:hover {
+      background-color: $tealharddark !important;
+      border-color: $tealharddark !important;
+      color: $white !important;
+    }
+  }
+}
+
+.fixed_btn_wrap{
+  position: fixed;
+  bottom: 0;
+  left: 352px;
+  right: 0;
+  width: auto;
+  z-index: 999;
+  transition: right 0.3s ease-in-out;
+  @include sm-screen {
+    left: 0;
+  }
+  @include md-screen {
+    left: 0;
+  }
+  &-sidebar--shown{
+    right:  350px;
+    @include sm-screen {
+      right: 0;
+    }
+    @include md-screen {
+      right: 0;
+    }
+  }
+}
