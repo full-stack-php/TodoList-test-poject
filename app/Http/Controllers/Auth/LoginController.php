@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -43,18 +44,19 @@ class LoginController extends Controller
     {
 
         if(Auth::check()){
-            return redirect()->intended(route('home'));
+            return redirect()->intended(route('/'));
         }
 
         $credentials = request(['email', 'password']);
+
+
         if (Auth::attempt($credentials)) {
             if (!$token = auth()->guard('api')->attempt($credentials)) {
                 return response()->json(['error' => 'Unable to create JWT token'], 500);
             }
             return $this->respondWithToken($token);
         }
-
-        return redirect(route('user.login'));
+        return response()->json(['error' => 'Wrong credentials'], 500);
     }
 
     /**
@@ -71,5 +73,20 @@ class LoginController extends Controller
             'token_type' => 'bearer',
             'expires_in' => auth()->guard('api')->factory()->getTTL() * 60,
         ]);
+    }
+
+    /**
+     * Logout current user.
+     *
+     * @return void
+     */
+    public function getLogout()
+    {
+        Auth::logout();
+        auth()->logout();
+        session()->invalidate();
+        session()->regenerateToken();
+
+        return redirect('/login');
     }
 }
